@@ -98,5 +98,3 @@ fun LoginScreen(onLoginResult: (Boolean, String) -> Unit) {
 fun LoginScreenPreview() {
     LoginScreen { _, _ -> }
 }
-
-
