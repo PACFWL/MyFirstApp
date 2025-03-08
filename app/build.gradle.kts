@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id ("kotlin-kapt")
+    id ("kotlin-android")
 }
+
+
 
 android {
     namespace = "com.examples.myfirstapp"
@@ -47,6 +51,13 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    kapt {
+        correctErrorTypes = true
+        javacOptions {
+            option("-source", "11")
+            option("-target", "11")
+        }
+    }
 }
 
 dependencies {
@@ -62,6 +73,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("androidx.navigation:navigation-compose:2.7.4")
+    implementation ("com.google.dagger:hilt-android:2.55")
+    kapt ("com.google.dagger:hilt-compiler:2.55")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

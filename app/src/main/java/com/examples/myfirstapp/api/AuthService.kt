@@ -1,5 +1,3 @@
-
-
 package com.examples.myfirstapp.api
 
 import retrofit2.Retrofit
@@ -17,11 +15,10 @@ interface AuthService {
     companion object {
         fun create(): AuthService {
             return Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
+                .baseUrl("http://10.0.2.2:8080/") // Para acessar o backend local no emulador
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(AuthService::class.java)
         }
     }
 }
-
